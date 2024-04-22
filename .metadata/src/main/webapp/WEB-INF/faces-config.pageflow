@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf17136638040010" configfile="/cadastro-pessoa-app/src/main/webapp/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="primeiro.xhtml" x="122" y="178" id="pf17137497410860" referenceLink="//@navigationRule.0/@fromViewId|" path="/primeiro.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="editar-pessoa.xhtml" x="122" y="562" id="pf17137497410893" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" path="/editar-pessoa.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="excluir-pessoa.xhtml" x="122" y="1331" id="pf17137497410894" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" path="/excluir-pessoa.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="listarPessoas.xhtml" id="pf17137880533965" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf17137880533976 pf17137880533977" path="/listarPessoas.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="editarPessoa.xhtml" id="pf17137880533978" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf17137880533976" path="/editarPessoa.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="adicionarPessoa.xhtml" id="pf17137880533979" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" inlinks="pf17137880533977" path="/adicionarPessoa.xhtml"/>
+  <links id="pf17137880533976" target="pf17137880533978" source="pf17137880533965" outcome="editar"/>
+  <links id="pf17137880533977" target="pf17137880533979" source="pf17137880533965" outcome="adicionar"/>
+</pageflow:Pageflow>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Listagem de Pessoas</title>
+</h:head>
+
+<h:body>
+	<h1>Listagem de Pessoas</h1>
+	<h:dataTable value="#{pessoaBean.pessoas}" var="pessoa">
+        <h:column>#{pessoa.id}</h:column>
+        <h:column>#{pessoa.nome}</h:column>
+        <h:column>#{pessoa.idade}</h:column>
+        <h:column><h:link value="Editar" outcome="editarPessoa">
+            <f:param name="id" value="#{pessoa.id}"/>
+        </h:link></h:column>
+        <h:column><h:commandButton value="Excluir" action="#{pessoaBean.excluirPessoa(pessoa)}"/></h:column>
+    </h:dataTable>
+    <h:link value="Adicionar Pessoa" outcome="adicionarPessoa"/>
+</h:body>
+
+</html>
