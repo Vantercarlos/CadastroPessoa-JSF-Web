@@ -22,7 +22,7 @@ e suas excelentes capacidades de gerenciamento de recursos e escalabilidade.
 	
 ## Instruções para Compilar e Executar o Projeto
 	1. Clone o repositório para o seu ambiente de desenvolvimento:
-		git clone https://github.com/seu_usuario/seu_repositorio.git
+		git clone https://github.com/Vantercarlos/CadastroPessoa-JSF-Web
 	2. Importe o projeto em sua IDE Java favorita (por exemplo, Eclipse, IntelliJ IDEA).
 	3. Certifique-se de ter o servidor de aplicativos Wildfly instalado e configurado corretamente em seu ambiente.
 	4. Configure o banco de dados PostgreSQL e o DataSource conforme descrito no arquivo persistence.xml.
