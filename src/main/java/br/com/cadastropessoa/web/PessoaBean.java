@@ -2,27 +2,28 @@ package br.com.cadastropessoa.web;
 
 import java.io.Serializable;
 import java.util.List;
-
 import javax.ejb.EJB;
-import javax.faces.view.ViewScoped;
+import javax.faces.bean.RequestScoped;
 import javax.inject.Named;
-
 import br.com.cadastropessoa.entity.Pessoa;
+import br.com.cadastropessoa.entity.Endereco;
 import br.com.cadastropessoa.service.PessoaService;
 
 @Named(value = "pessoaBean")
-@ViewScoped
+@RequestScoped
 public class PessoaBean implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@EJB(beanName = "PessoaService")
+    @EJB
     private PessoaService pessoaService;
-	
-	private List<Pessoa> pessoas;
+
+    private List<Pessoa> pessoas;
+    private List<Pessoa> pessoasComEnderecos;
+    private List<Endereco> enderecosComPessoas;
     private Pessoa novaPessoa;
     private Pessoa pessoaSelecionada;
-    
+
     public PessoaBean() {
         novaPessoa = new Pessoa();
     }
@@ -33,9 +34,31 @@ public class PessoaBean implements Serializable {
         }
         return pessoas;
     }
-    
+
     public void setPessoas(List<Pessoa> pessoas) {
         this.pessoas = pessoas;
+    }
+
+    public List<Pessoa> getPessoasComEnderecos() {
+        if (pessoasComEnderecos == null) {
+            atualizarListaPessoasComEnderecos();
+        }
+        return pessoasComEnderecos;
+    }
+
+    public void setPessoasComEnderecos(List<Pessoa> pessoasComEnderecos) {
+        this.pessoasComEnderecos = pessoasComEnderecos;
+    }
+
+    public List<Endereco> getEnderecosComPessoas() {
+        if (enderecosComPessoas == null) {
+            atualizarListaEnderecosComPessoas();
+        }
+        return enderecosComPessoas;
+    }
+
+    public void setEnderecosComPessoas(List<Endereco> enderecosComPessoas) {
+        this.enderecosComPessoas = enderecosComPessoas;
     }
 
     public void adicionarPessoa() {
@@ -58,6 +81,14 @@ public class PessoaBean implements Serializable {
         pessoas = pessoaService.listarPessoas();
     }
 
+    public void atualizarListaPessoasComEnderecos() {
+        pessoasComEnderecos = pessoaService.listarPessoasComEnderecos();
+    }
+
+    public void atualizarListaEnderecosComPessoas() {
+        enderecosComPessoas = pessoaService.listarEnderecosComPessoas();
+    }
+
     public Pessoa getNovaPessoa() {
         return novaPessoa;
     }
@@ -74,7 +105,7 @@ public class PessoaBean implements Serializable {
         this.pessoaSelecionada = pessoaSelecionada;
     }
 
-	public void setPessoaService(PessoaService pessoaService) {
-		this.pessoaService = pessoaService;
-	}
+    public void setPessoaService(PessoaService pessoaService) {
+        this.pessoaService = pessoaService;
+    }
 }
